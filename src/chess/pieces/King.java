@@ -10,15 +10,15 @@ public class King extends ChessPiece {
 	public King(Board board, Color color) {
 		super(board, color);
 	}
+	
+	private boolean canMove(Position pos) {
+		ChessPiece p = (ChessPiece) getBoard().piece(pos);
+		return p == null || p.getColor() != getColor();
+	}
 
 	@Override
 	public String toString() {
 		return "K";
-	}
-
-	private boolean canMove(Position pos) {
-		ChessPiece p = (ChessPiece) getBoard().piece(pos);
-		return p == null || p.getColor() != getColor();
 	}
 
 	@Override
